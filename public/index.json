@@ -1,0 +1,204 @@
+[
+{
+	"uri": "/introduction/",
+	"title": "소개",
+	"tags": [],
+	"description": "",
+	"content": " 만약 CI/CD와 CodeSeries에 대한 개념과 내용을 알고 있다면, 2단계(실습 환경 소개) 로 넘어가세요.\n    이름 설명     master Production 코드 또는 Production-ready 코드   develop Integration 브랜치, 개발이 일어나는 브랜치    실습환경은 master와 develop 두개의 브랜치로 진행합니다. 각각의 브랜치는 Code Pipeline을 이용하여 빌드와 배포 환경이 구성되어 있으며 develop 브랜치에 변경된 사항은 개발환경으로, master 브랜치에 변경된 사항은 프로덕션 환경으로 즉각적으로 배포됩니다.\n그렇기 때문에 병합시 변경된 코드리뷰와 유닛테스트 결과는 매우 중요하며 이것은 즉각적으로 개발자에게 전달될 수 있어야합니다.\n이 실습은 develop의 변경사항이 master로 병합될때 자동화된 unit test의 결과를 CodeBuild로 시각화 하는 내용과 CodeGuru를 사용하여 자동화된 코드 검토를 통해 안전하게 병합되는 방법을 소개하고 있습니다.\n이제 실습에 사용할 서비스들과 CI/CD의 개념에 대하여 설명하겠습니다.\n 1-1. CI/CD with Code Serise  1-2. Unit Test  1-3. CodeGuru   "
+},
+{
+	"uri": "/introduction/cdci/",
+	"title": "CI/CD with Code Series",
+	"tags": [],
+	"description": "",
+	"content": "CI/CD란?(Continuous Integration/Continuous Delivery) CI/CD는 빌드 및 테스트를 자동화하여 보다 짧은 주기로 고객에게 어플리케이션을 제공하는 방법입니다. 또한 개발자가 변경하는 새로운 코드들의 Merge로 인해 생기는 여러가지 문제를 해결하기위한 솔루션이기도 합니다. 특히 CI/CD는 소프트웨어 릴리스 프로세스 중 빌드 또는 통합 단계를 주로 가리키며, 어플리케이션의 라이프사이클 전체의 자동화와 모니터링을 제공합니다.\nCI는 (Continuous Deployment)는 개발자들의 변경사항이 버그테스트를 거쳐 Repository에 자동으로 업로드되는 것을 뜻합니다. CD는 Continuous Deployment)는 개발자들의 변경사항이 모든 테스트를 거쳐 고객이 사용가능한 프로덕션 환경까지 자동으로 릴리즈 되는 것을 뜻합니다. 결과적으로 CI/CD는 파이프라인으로 표현되는 실제 프로세스를 의미하고 어플리케이션 개발의 자동화화 모니터링을 추가하는것을 의미합니다.\n이것은 개발자가 최소한의 작업으로 본인의 코드를 테스트, 또는 실제 릴리즈까지 가능하게합니다. 그렇기 때문에 잘 구성된 CI/CD 파이프라인은 파이프라인에 셋팅된 자동 테스트들로 인해 코드 품질을 향상시킴과 동시에 개발 사이클을 앞당겨 전체적인 개발속도를 향상시킬 수 있습니다.\n어떻게? 무엇을 사용해야 할까? AWS에서 제공하는 Code Series를 사용할 수 있습니다. 코드시리즈는 완전관리형 서비스기 때문에 별도의 서버나 인프라가 필요 없습니다.\n CodeCommit : AWS CodeCommit은 안전한 Git 기반 리포지토리를 호스팅하는 완전관리형 소스 제어 서비스(Sorcecode Version Control)입니다 CodeBuild : AWS CodeBuild는 소스 코드를 컴파일하는 단계부터 테스트 실행 후 소프트웨어 패키지를 개발하여 배포하는 단계까지 마칠 수 있는 완전관리형의 지속적 통합 서비스입니다 CodeDeploy : AWS CodeDeploy는 Amazon EC2, AWS Fargate, AWS Lambda 및 온프레미스 서버와 같은 다양한 컴퓨팅 서비스에 대한 소프트웨어 배포를 자동화하는 완전관리형 배포 서비스입니다. CodePipeline : AWS CodePipeline은 빠르고 안정적인 애플리케이션 및 인프라 업데이트를 위해 릴리스 파이프라인을 자동화하는 데 도움이 되는 완전관리형 지속적 전달 서비스입니다.   그럼 UnitTest는 무엇인가요?    "
+},
+{
+	"uri": "/introduction/unittest/",
+	"title": "Unit Test",
+	"tags": [],
+	"description": "",
+	"content": "Unit Test란? UnitTest(단위테스트)는 Module을 테스트하는 또 하나의 Module이라고 생각하면됩니다. 하나의 소프트웨어는 여러개의 모듈로 이루어져있으며 Unit Test는 이런 각각의 모듈이 정상적으로 기능을 수행하는지 시험할 수 있는 최소 수준의 시험단위를 뜻합니다. 이번 워크샵은 JAVA 에서 사용할 수 있는 Junit을 이용한 Unit Test를 수행할 예정입니다.\n그리고 수행한 결과를 xml로 출력한 뒤 CodeBuild의 보고서 기능으로 시각화 할 것입니다. 개발자는 손쉽게 본인의 테스트가 몇퍼센트가 성공했는지, 또는 어떤 테스트가 실패했는지 쉽게 확인할 수 있습니다.\n 이제 CodeGuru에 대하여 알아보겠습니다.    "
+},
+{
+	"uri": "/introduction/codeguru/",
+	"title": "CodeGuru",
+	"tags": [],
+	"description": "",
+	"content": "AWS CodeGuru AWS의 CodeGuru는 기계학습을 이용한 코드리뷰 및 어플리케이션 성능권장 사항을 제공하는 서비스 입니다. 이 서비스를 사용하여 어플리케이션의 숨겨진 문제와 문제를 일으킬 여지가 있는 코드를 찾을 수 있습니다. 구체적인 권장사항도 제공하기 때문에 코드를 수정하거나 개선할 수 있습니다. CodeGuru는 수백만 건의 코드리뷰와 오픈소스 프로젝트, Amazon 내부에서 프로파일링된 수천개의 어플리케이션을 기반으로 구축되었습니다. CodeGuru는 JAVA Code를 지원하고 있습니다. Repository는 GitHub또는 CodeCommit을 사용할 수 있습니다. 또한 손쉽게 통합이 가능합니다.\nCodeGuru의 서비스는 크개 두가지로 구성되어 있습니다. 그래서 각각의 코드 라이프사이클에 관여할 수 있습니다.\n1. CodeReviwe 기능을 제공하는 CodeGuru Reviewer CodeGuru Reviewer는 GitHub 또는 CodeCommit에서 Pull-Request 발생시 자동을 코드를 분석하여 적절한 멘트를 달아줍니다. CodeGuru Reviewer는 코드 결함을 찾아 표기하고 권장사항을 제안합니다.\nCodeGuru Reviewer가 탐지하는 내용은 크게 아래와 같은 카테고리로 나눌 수 있습니다.\n AWS Best Practices : AWS APIs를 올바르게 사용 Concurrency : 동시성을 고려하지 않아 생기는 잘못된 결과 발견 (Thread-safe) Resource Leaks : 잘못된 리소스 핸들링의 사용 Sensitive Information Leak : 민감한 개인정보 유출 문제.  2. Profiling기능을 제공하는 CodeGuru Profiler CodeGuru Profiler는 라이브 애플리케이션에서 런타임 성능 데이터를 수집하고 애플리케이션 성능을 미세 조정할 수있는 권장 사항을 제공합니다. CodeGuru Profiler는 기계 학습 알고리즘을 사용하여 가장 비싼 코드를 찾고 효율성을 개선하고 CPU 병목 현상을 제거 할 수있는 방법을 제안 할 수 있습니다.\n 이제 실습을 위한 준비를 해봅시다.    "
+},
+{
+	"uri": "/",
+	"title": "홈",
+	"tags": [],
+	"description": "",
+	"content": "코드품질 향상을 위한 AWS CI/CD pipeline with CodeGuru \u0026amp; UnitTest  이 Workshop은 AWS의 Code Serise를 이용하여 CI/CD 파이프라인을 구축하고, 코드품질을 높이는 다양한 방법들 (CodeReview \u0026amp; UnitTest)를 어떻게 구성하는지 설명합니다.\n간단한 Branch 별 빌드 및 배포, UnitTest 보고서 생성 그리고 Pull-request 생성시 자동으로 코드리뷰를 하는 CodeGuru까지 다루고 있습니다.\nAWS의 다양한 서비스를 이용하여 코드 품질을 높힐 수 있도록 CD/CI 파이프라인을 구축해보세요!\n "
+},
+{
+	"uri": "/setup/",
+	"title": "실습 환경 셋업",
+	"tags": [],
+	"description": "",
+	"content": " 다음 장에서 생성한 CloudFormation의 스택은 이 실습환경과 master와 develop의 CI/CD 파이프라인을 전부 포함하고 있습니다.\n 본 실습은 코드품질을 높히기 위한 과정을 AWS의 서비스를 사용하여 어떻게 진행하는지를 보여드립니다. 각각의 과정을 모두 자동화하여 개발자가 최소한의 노력으로 코드를 Commit하고 테스트하고 배포할 수 있습니다. 배포와 테스트가 이루어지는 환경은 다음과 같습니다.\n실습환경 사용 서비스    이름 설명     CodeCommit 코드저장소는 CodeCommit이며 개발 코드는 JAVA이며 Gradle을 사용합니다. Master Branch에서 Prod환경으로 바로 배포합니다. 개발자의 소스코드 변경과 테스트는 Develop Branch에서 이루어집니다.   CodeBuild 빌드툴은 CodeBuild 입니다. UnitTest를 위해 Junit을 사용할 것이며 결과는 Surefire를 사용하여 xml로 출력합니다. 출력된 Report는 CodeCommit의 보고서 기능을 사용하여 콘솔에서 바로 확인합니다.   CodeDeploy 테스트가 통과된 코드는 자동으로 Dev환경에 배포됩니다. Develop Branch에 Push된 코드는 DevWebApp01인스턴스에 배포되며 CodeGuru의 프로파일러 기능을 사용하여 성능분석을 시작합니다. 그리고 모든 테스트가 통과되어 Master에 Merge되면 코드는 ProdWebApp01로 자동 배포됩니다.   CodePipeline 위 일련의 과정을 CodePipeline으로 시각화합니다. 개발자는 Push된 코드가 어느부분에 문제가 있는지 바로 알아 차릴 수 있습니다.   CodeGuru Pull-Request시 자동으로 Code-Review를 진행합니다. DevWebapp01에 배포된 코드의 프로파일링을 수행합니다.     CloudFomration을 이용하여 실습환경을 셋팅해보겠습니다.    "
+},
+{
+	"uri": "/setup/lab-setup/",
+	"title": "CloudFormation",
+	"tags": [],
+	"description": "",
+	"content": "AWS 계정  이미 AWS 계정을 가지고 있다면 즉시 이 실습의 가이드를 따라 진행할 수 있으나, 계정이 없다면 먼저 AWS 계정을 만들어야 합니다.\n AWS 계정 생성 및 활성화 가이드는 다음 링크 를 참조하시기 바랍니다.\n실습은 us-west-2 (오레곤) 리전을 선택합니다. 해당 실습은 다른 AWS 리전에서는 작동하지 않습니다.\n본 실습 시작 전, 실습에 필요한 리소스는 AWS CloudFormation을 사용하여 구성한 다음, CodeGuru와 Codebuild Report를 별도로 구성합니다.\n IAM 사용자 AWS 계정을 생성했지만 직접 IAM 사용자를 생성하지 않은 경우, IAM 콘솔을 사용하여 IAM 사용자를 생성 할 수 있습니다. 다음 스텝에 따라 Administrator (관리자) 사용자를 생성합니다. 이미 관리자 사용자가 있다면, 다음 IAM 사용자 생성 작업을 건너 뜁니다.\n AWS 계정 이메일 주소와 비밀번호를 사용하여 AWS 계정의 Root 사용자로 IAM 콘솔 에 로그인 합니다. IAM 콘솔 왼쪽 메뉴 패널에서 Users (사용자)를 선택한 다음 Add user (사용자 추가)를 클릭합니다. User name (사용자 이름)은 Administrator로 입력합니다. AWS Management Console access 체크박스를 선택하고, Custom password를 선택한 다음 비빌번호를 입력합니다. Next: Permissions (다음: 권한)을 클릭합니다.  Attach existing policies directly (기존 정책 직접 연결)를 선택하고 AdministratorAccess 정책에 체크박스를 선택하고 Next: Tags (다음: 태그)를 클릭합니다.  Next: Review (다음: 검토)를 클릭합니다. Administrator 사용자에 AdministratorAccess 관리형 정책이 추가 된 것을 확인하고 Create user (사용자 만들기)를 클릭합니다. 이제 Root 사용자를 로그아웃하고 새로 생성한 Administrator 사용자로 로그인을 합니다. 다음 URL을 사용하여 로그인 할 수 있습니다.   https://\u0026lt;your_aws_account_id\u0026gt;.signin.aws.amazon.com/console/\n\u0026lt;your_aws_account_id\u0026gt;는 본인 AWS 계정의 고유 ID를 입력합니다. Root 사용자로는 해당 실습을 진행할 때 에러가 발생할 수 있습니다. 반드시 admin 유저 계정으로 로그인하여 진행하세요.\n  EC2 Key Pair CloudFormaton template을 사용하여 실습에 필요한 기본 환경을 구성하려면 Amazon EC2 키 페어를 제공해야 합니다. 이미 EC2 키 페어가 있는 경우 다음 작업을 건너 뜁니다.\n Administrator 사용자로 AWS 콘솔에 로그인 한 다음 EC2 콘솔 로 이동합니다. 탐색 창의 Network \u0026amp; Security (네트워크 \u0026amp; 보안)에서 Key Pairs (키 페어)를 선택합니다. Create Key Pair (키 페어 생성)를 클릭합니다. Key pair name (키 페어 이름)에 새 key pair의 이름을 입력 한 다음 Create (생성)을 클릭합니다. .PEM 파일 형식의 Private Key (개인 키) 파일은 브라우저에서 자동으로 다운로드 됩니다. 개인 키는 다음 CloudFormation을 사용할 때 필요합니다.  CloudFormation Template AWS CloudFormation에서는 클라우드 환경에서 AWS 및 타사 애플리케이션 리소스를 모델링하고 프로비저닝할 수 있도록 공용 언어를 제공합니다. AWS CloudFormation을 사용하면 프로그래밍 언어 또는 간단한 텍스트 파일을 사용하여 자동화되고 안전한 방식으로 모든 지역과 계정에 걸쳐 애플리케이션에 필요한 모든 리소스를 모델링 및 프로비저닝할 수 있습니다.\nAWS CodeQuality 실습에 필요한 AWS 리소스를 사전에 생성하기 위해 제공된CloudFormation template을 사용하여 CloudFormation stack을 생성합니다. 개발환경과 프로덕션 환경을 위한 EC2와 VPC, 그리고 각각의 환경에 생서할 CodePipeline, CodeBuild, CodeDeploy, CodeCommit을 생성합니다.\nCloudFormation 스택을 시작하려면, Launch Stack 버튼 를 클릭해서 CloudFormation 콘솔로 이동합니다.\n중요: 이 탬플릿은 us-west-2 (오레곤)을 위해 만들어졌으며 다른 AWS 리전에서는 작동하지 않습니다.\n  Launch Stack  스택 생성 단계에서 스택 이름을 입력하고 앞서 생성한 EC2 키 페어를 선택합니다. 그리고 나머지는 기본 값을 유지하고 마지막 단계에서 CloudFormation이 IAM 리소스를 생성할 때 커스텀 이름을 사용할 수 있게 Acknowledge 체크박스를 선택하고 Create stack (스택 생성)을 클릭합니다.\nCloudFormation 스택을 완료하는 데 약 5분 정도 소요됩니다. CloudFormation 콘솔을 확인하고 아래와 같이 CREATE_COMPLETE 상태를 기다립니다. 스택 생성이 완료되면 AWS 계정에 실습을 실행하는 데 필요한 모든 기본 리소스가 준비 되어있습니다. Outputs 탭에서 DevWebApp01의 이름, ProudWebApp01의 이름이 표시됩니다.\n  이제 생성된 빌드 환경에 CI/CD파이프라인을 구축해 보겠습니다.   "
+},
+{
+	"uri": "/setup/cloud9/",
+	"title": "Cloud9",
+	"tags": [],
+	"description": "",
+	"content": "Cloud9에 Workspace를 생성할 것입니다: AWS Cloud9은 브라우저만으로 코드를 작성, 실행 및 디버깅할 수 있는 클라우드 기반 IDE(통합 개발 환경)입니다. 코드 편집기, 디버거 및 터미널이 포함되어 있습니다. Cloud9은 JavaScript, Python, PHP를 비롯하여 널리 사용되는 프로그래밍 언어를 위한 필수 도구가 사전에 패키징되어 제공되므로, 새로운 프로젝트를 시작하기 위해 파일을 설치하거나 개발 머신을 구성할 필요가 없습니다.\nCloud9콘솔로 가기: https://console.aws.amazon.com/cloud9\nWorkspace 만들기   오른쪽 상단의 Create Environment를 선택합니다.   Name environment의 Name에 CodequalityWorkshop's Cloud9을 입력하고 Description에는 for Workshop을 입력한 후 Next Step을 누릅니다.   Configure settings는 아무것도 변경하지 않고 Next step을 선택합니다.   Review에서 생성되는 Cloud9의 환경과 셋팅을 확인한 후 Create Environment를 선택합니다.   생성이 완료되면 아래와 같은 Cloud9이 셋팅됩니다.    이제 실습을 위해 CodeCommit을 셋팅하겠습니다.    "
+},
+{
+	"uri": "/setup/codecommit/",
+	"title": "CodeCommit",
+	"tags": [],
+	"description": "",
+	"content": "실습에 사용할 CodeCommit과 소스코드를 생성합니다. AWS CodeCommit은 안전한 Git 기반 리포지토리를 호스팅하는 완전관리형 소스 제어 서비스입니다. 이 서비스를 사용하면 뛰어난 확장성의 안전한 에코시스템에서 여러 팀이 협업하여 코드 작업을 수행할 수 있습니다. 실제 작업코드는 Github에 있기 때문에 이 코드를 사용자의 CodeCommit Repo로 옮기는 작업을 시작하겠습니다.\n  이제 Cloud9에서 실습에 사용할 코드를 셋팅할 것입니다. Cloud9의 Terminal에 아래와 같은 명령어를 입력합니다.\ngit clone https://github.com/sykang169/ConcurrencySample.git\r  위 명령어가 잘 실행되었다면 왼쪽 Environment이 파일창에 아래와 같이 concurrencysample이라는 폴더가 생성됩니다.   해당 repository의 기본 branch가 master기 때문에 clone은 master branch를 가져옵니다. 폴더의 내용을 살펴보면 README.md파일 외에는 별다른 파일이 없습니다. 실습에 필요한 진짜 소스코드는 develop에 있으니 develop Branch를 pull 합니다.\ncd ConcurrencySample\rgit checkout origin/develop -b develop\r  master보다 훨씬 많은 파일이 생성된것을 보실 수 있습니다. 이제 master와 develop의 코드들을 방금전 cloudformation에서 자동으로 생성한 codecommit의 concurrencysample repository로 변경할 것입니다.   CloudFormation의 Output을 확인하기위해 CloudFormation 콘솔로 갑니다.\nCloudFormation 콘솔로 가기: https://console.aws.amazon.com/codecommit\n또는 AWS 콘솔의 Services에서 Management \u0026amp; Governance의 CloudFormation을 선택합니다.   왼쪽 메뉴의 Stacks를 선택하고 방금 생성한 CodeQuality-Workshop을 선택합니다. 이곳에서 생성한 Stack의 디테일한 정보를 확인할 수 있습니다.   Stack의 상세 내용에서 상단의 Outputs을 선택합니다. 거기서 우리가 진짜 repository로 사용할 CodeCommit의 URL을 복사합니다.   이제 다시 Cloud9으로 돌아갑니다. 이전에 생성한 concurrencysample폴더에서 현재 origin의 url을 확인합니다.\ngit remote show origin\r명령어를 입력하면 현재 설정된 origin의 url을 보여줍니다.\nremote origin\rFetch URL: https://github.com/sykang169/ConcurrencySample.git\rPush URL: https://github.com/sykang169/ConcurrencySample.git\rHEAD branch: master\rRemote branches:\rdevelop tracked\rmaster tracked\rLocal branches configured for \u0026#39;git pull\u0026#39;:\rdevelop merges with remote develop\rmaster merges with remote master\rLocal refs configured for \u0026#39;git push\u0026#39;:\rdevelop pushes to develop (up to date)\rmaster pushes to master (up to date)\rorigin의 url을 https://github.com/sykang169/ConcurrencySample.git에서 새로 생성한 codecommit의 주소로 변경합니다.\nCloud9의 터미널에 아래와 같이 입력하여 Git의 origin 주소를 변경합니다.\u0026lt;YOUR_REPOSITORY-URL\u0026gt;은 아까 CloudFormation의 Stack에서 복사한 CodeCommit의 URL정보입니다.\ngit remote set-url origin \u0026lt;YOUR-REPOSITORY-URL\u0026gt;\r명령어가 수행된 뒤 다시 git remote show origin으로 확인해보면 origin의 URL이 자신의 CodeCommit주소로 변경된 것을 확인할 수 있습니다.\nFetch URL: \u0026lt;YOUR_REPOSITORY-URL\u0026gt;\rPush URL: \u0026lt;YOUR_REPOSITORY-URL\u0026gt;\rHEAD branch: master\rRemote branches:\rdevelop tracked\rmaster tracked\rLocal branches configured for \u0026#39;git pull\u0026#39;:\rdevelop merges with remote develop\rmaster merges with remote master\rLocal refs configured for \u0026#39;git push\u0026#39;:\rdevelop pushes to develop (up to date)\rmaster pushes to master (up to date)\r  이제 변경된 CodeCommit Repository로 Cloud9의 코드를 Push하겠습니다. 먼저 master로 checkout한 후 push 합니다. CodeCommit의 Repo는 아직 한 건의 Push도 없기 때문에 먼저 생성된 브랜치가 기본 브랜치가 됩니다. master를 기본 브랜치로 사용하기 위해선 master를 먼저 push해야합니다.\ngit checkout master\rgit push\rdevelop도 동일한 방법으로 push합니다.\ngit checkout develop\rgit push\r   실습을 진행할 코드를 업로드하였습니다. 이제 CodeCommit에 CodeGuru를 연결하도록하겠습니다.    "
+},
+{
+	"uri": "/setup/codeguru-reviewer/",
+	"title": "CodeGuru Reviewer",
+	"tags": [],
+	"description": "",
+	"content": "CodeGuru Reviewer를 CodeCommit과 연동하겠습니다. CodeGuru 콘솔로 가기: https://console.aws.amazon.com/codeguru\n  왼쪽 메뉴의 Reviewer의 Associated repositories를 선택합니다.   오른쪽 상단의 Associate repository를 선택합니다.   Repository details의 Source provider를 AWS CodeCommit으로 선택한 뒤 Repository location에서 concurrencysample을 선택합니다. 그리고 Associate를 누릅니다.   Codeguru의 Dashboard에서 연결된 concurrencysample을 확인하실 수 있습니다. .   이제 CodeGuru와 CodeCommit의 연동이 끝났습니다.\n   이제 CodeCommit에 CodeGuru의 Profiler를 연결하도록하겠습니다.    "
+},
+{
+	"uri": "/setup/codeguru-profiler/",
+	"title": "CodeGuru Profiler",
+	"tags": [],
+	"description": "",
+	"content": "CodeGuru Profiler를 WebApp 서버와 연동하겠습니다. CodeGuru 콘솔로 가기: https://console.aws.amazon.com/codeguru\n  왼쪽 메뉴의 Profiler의 Profiling groups를 선택합니다.   오른쪽 상단의 Create profiling groups를 선택합니다.   Create profiling group의 Profiling group details의 Name에 concurrencysample-profiler를 입력합니다. 그리고 오른쪽 하단의 Create를 누릅니다.   Manage permissions for concurrencysample-profiler박스의 choose users and roles에 CodeQuality-Workshop-WebAppRole을 입력합니다. 그럼 이전 CloudFormation에서 만들었던 Stack 인스턴스의 role이 나옵니다. 왼쪽 체크박스를 선택한 후 Save를 눌러 저장합니다.\n  Profiler는 소스코드의 메인 클래스인 ConcurrencyCheckout.java의 main 에서 찾을 수 있습니다.\npublic static void main(final String[] args) {\r// Start the profiler\r Profiler systemProfiler = Profiler.builder()\r.profilingGroupName(\u0026#34;concurrencysample-profiler\u0026#34;).build();\rsystemProfiler.start();\r...\r}\r만약 다른 보고서 그룹에 연동하시려면 profilingGroupName의 매개변수인 concurrencysample-profiler를 다른 보고서 그룹이름으로 지정해주세요.\n  이제 CodeGuru Profiler와 인스턴스간 연결이 끝났습니다.\n   Unit Test의 결과를 쉽게 볼 수 있도록 CodeBuild의 Report group을 만들도록 하겠습니다.    "
+},
+{
+	"uri": "/setup/codebuild/",
+	"title": "CodeBuild Report",
+	"tags": [],
+	"description": "",
+	"content": "CodeBuild의 보고서 기능을 추가할 것입니다. 실습에 사용할 코드는 Build시 Junit을 사용하여 유닛테스트를 수행합니다. 유닛테스트가 수행된 결과는 xml로 발행되고 개발자는 이것을 사용하여 본인의 코드가 어떤 유닛테스트를 통과하지 못했는지를 알 수 있어야합니다. 2020 1월부터 CodeBuild에 보고서 기능이 추가되었습니다. 우리는 이것을 사용하여 xml Report를 시각화 할 것입니다.\nCodebuild 콘솔로 가기: https://console.aws.amazon.com/codebuild\n  오른쪽 Build텝의 Report groups를 선택합니다. 그리고 오른쪽 상단의 Create report group을 선택합니다.   Rport group configuration의 Report group name에 Concurrency-Unittest-Report를 입력합니다. Export to Amazon S3의 체크박스는 해제합니다.   생성된 Report groups의 ARN을 복사하기위해 Report groups에서 Concurrency-Unittest-Report를 선택합니다.   이제 이곳에 수행한 Unittest의 결과가 보여질 것입니다. Configuration의 Report group ARN의 내용을 복사합니다.   이제 Cloud9으로 돌아가 buildspec.yml을 수정하겠습니다. buildspec.yml은 ConcurrencySample의 루트디렉토리에 있습니다. 파일을 더블클릭하여 내용을 추가합니다. 에 아까 복사한 Report group ARN을 붙여넣습니다.\nreports:\r\u0026lt;YOUR-REPORT-GROUP-ARN\u0026gt;:\rfiles:\r- \u0026#39;**/*\u0026#39;\rbase-directory: \u0026#39;build/test-results/test\u0026#39;\r  buildspec.yml의 최종 내용을 아래와 같습니다.\nversion: 0.2\rphases:\rinstall:\rruntime-versions:\rjava: corretto11\rcommands:\r- java -version\r- gradle -version\rbuild:\rcommands:\r- ./gradlew clean build\rreports:\r\u0026lt;YOUR-REPORT-GROUP-ARN\u0026gt;:\rfiles:\r- \u0026#39;**/*\u0026#39;\rbase-directory: \u0026#39;build/test-results/test\u0026#39; artifacts:\rfiles:\r- \u0026#39;**/*\u0026#39;\rname: concurrencysample-$(date +%Y-%m-%d)   변경된 내용을 Commit한 뒤 push하여 반영하겠습니다.\ncd ConcurrencySample\rgit add .\rgit commit -m \u0026#34;change Buildspec.yml\u0026#34;\rgit push\r  변경된 내용이 잘 반영되었는지 확인하겠습니다. 왼쪽 메뉴의 Build의 Build projects를 선택하여 concurrencysample를 선택합니다.   실패한 빌드를 확인할 수 있습니다. 내용을 눌러 확인해보겠습니다. 아래 메세지를 보면 빌드 자체는 성공한 것을 볼 수 있습니다. 하지만 UnitTest가 실패한 것을 볼 수 있습니다. 이렇게 보면 어떤 테스트를 어떻게 통과했는지 자세한 내용을 보기 어렵기 때문에 build폴더에 생성된 report파일을 참조하거나 xml파일을 보실 수 있습니다. 하지만 이전에 연동한 CodeBuild Report를 이용하면 빌드 별 결과를 손쉽게 확인하실 수 있습니다.\nReport groups로 가서 업로드된 report를 확인하겠습니다.\n  왼쪽 Build메뉴의 Report groups를 선택합니다. 그리고 아까 만든 Cuncurrency-Unittest-Report를 선택합니다.   성공실패와 수행시간을 그래프로 볼 수 있고 하단의 reports history의 report를 누르시면 UnitTest의 세부사항을 보실 수 있습니다. Console로 보는 것보다 훨씬 편하게 확인이 가능합니다.\n   유닛테스트가 왜 실패했는지, 어떻게 수정해야하는지는 다음 프로그램 분석에서 하나씩 알아보겠습니다.    "
+},
+{
+	"uri": "/codequality/",
+	"title": "프로그램 분석",
+	"tags": [],
+	"description": "",
+	"content": " ConcurrencySample Code는 Java,Gradle로 작성되었습니다.\n 이 코드는 문제점을 가지고 있습니다.\n 먼저 코드를 살펴봅시다.   소스코드의 구조는 아래와 같습니다.\n-src\r-main/java/com/example/\r-restservice\r-BasicSynchronization.java\r-ConcurrencyCheckout.java\r-SingletonRepo.java\r-s3\r-AwsCredentials-sample.propertie\r-AWSFileMapper.java\r-FileMapper.java\r  SingletonRepo파일을 살펴보도록 하겠습니다. SingletonRepo는 프로그램에서 오직 단 하나의 instance만 가질 수 있습니다. 그리고 내부에 하나의 HashMap을 가지고 있습니다. 이 함수의 핵심이 되는 putKey()함수를 살펴보도록 하겠습니다.\npublic Object putKey(int product_code, int product_price, int tname) { if (map.containsKey(product_code)) {\rreturn map.get(product_code);\r}else{\rreturn map.put(product_code, new Concurrency(product_code,\u0026#34;test\u0026#34;));\r}\r}\rputKey의 동작 방식은 간단합니다. containKey()로 HashMap에 숫자가 있는지 확인 하고 없을 경우 put()으로 숫자를 저장합니다.\n  하지만 HashMap에 이미 동일한 값이 있다면 값을 입력하지 않습니다.   BasicSynchronization는 SingletonRepo의 putKey함수를 호출하여 0~10000사이 임의로 생성한 숫자를 3000번 집어 넣습니다. 같은 숫자는 오직 한번만 저장될 수 있습니다.\n  ConcurrencyCheckout은 Main을 포함하고 있는 Class입니다. 이 함수는 BasicSynchronization를 5개 생성하여 5개의 쓰레드를 시작시킵니다.   즉 이 프로그램은 ConcurrencyCheckout에서 생성한 5개의 쓰레드가 하나의 HashMap에 입력을 반복합니다.\n   그럼 이 프로그램은 무슨 문제점을 가지고 있을까요?   이 코드는 동시성 문제를 가지고 있습니다. 만약 두개의 쓰레드에서 두개의 PutKey()를 거의 동시에 호출하면 어떻게 될까요? 만약 첫번째 함수의 putkey가 완료되지 않을때 두번째 함수의 putkey가 호출된다면, 두번째 함수도 HashMap에 동일한 숫자를 입력하고 Call Count를 증가시킬 것입니다.\nif (map.containsKey(product_code)) { return map.get(product_code);\r}else{\rreturn map.put(product_code, new Concurrency(product_code,\u0026#34;test\u0026#34;)); \u0026lt;-----첫번째 함수 진행중.두번째 함수 진행중.\r}\r  숫자는 한번밖에 입력이 되지 않았는데 Call Count는 두번 증가하게 된 것입니다.\n  HashMap은 전혀 Thread-safe하지 않습니다. get과 put이 원자성을 보장하지 않기 때문에 위와 같은 코드는 위험합니다. Thread가 많아지고 동시에 수행되는 putkey의 call이 늘어난다면 결과의 동일성을 보장할 수 없습니다.\n  수행중인 UnitTest에서도 이와같은 문제가 나타나기 때문에 error가 발생합니다. 수행되는 유닛테스트인 SingletonRepotests2는 5개의 쓰레드를 생성시킨 뒤 HashMap에 입력이 일어날 경우 count를 하나씩 올립니다. 그리고 모든 작업이 끝난 후 HashMap에 입력된 값의 갯수와 입력이 일어난 횟수를 비교합니다. 갯수가 같다면 입력이 일어난 횟수와 HashMap이 가지고있는 갯수가 같으니 함수가 올바르게 동작한 것입니다.\n  하지만 현재 코드는 동시성을 고려하지 않고 프로그래밍했기 때문에 UnitTest가 계속 실패할 것입니다. 물론 아주 운이 좋다면 테스트가 성공할 수도 있습니다. 하지만 그럴 경우도 방지하기위해 SingletonRepotests2는 동일한 테스트를 10번 수행합니다.\n   그럼 이 문제는 어떻게 해결해야 할까요?    "
+},
+{
+	"uri": "/codegurupr/",
+	"title": "CodeGuru Reviewer",
+	"tags": [],
+	"description": "",
+	"content": " 문제점을 해결한 Code를 Pull-Request를 통해 master로 병합하여 최종코드를 프로덕션환경으로 배포합니다.\n   이제 프로덕션에 사용할 코드가 완성되었습니다. develop 브랜치의 코드는 모든 유닛테스트를 문제없이 통과하였기 때문에 프로덕션 환경에 배포할 것입니다. 일반 개발자는 보통 master 브랜치에 직접 push할 수 있는 권한이 없습니다. 그래서 pull-request를 통해 시니어개발자 또는 동료개발자와의 코드리뷰를 거친 후 master에 반영할 예정입니다. 혹시 모를 다른 문제점이 있을 수도 있으니까요.\n  pull-request를 생성하기위해 CodeCommit 콘솔로 갑니다.\nCodeCommit 콘솔로 가기: https://console.aws.amazon.com/CodeCommit\n  왼쪽 Source의 Repositories를 선택하고 concurrencysample을 누릅니다.   왼쪽 Source의 Repositories의 Pull requests를 선택하고 오른쪽 위 Create pull request를 누릅니다.   Create pull request의 Destination은 master Source는 develop으로 설정한 후 Compare버튼을 누릅니다.   Details의 Title에 pr concurrencytest를 입력하고 Description에 for workshop을 입력하고 오른쪽의 Create pull request를 선택합니다.    pull-request를 생성하였습니다. 이제 어떤 일이 일어나는지 확인하겠습니다.    "
+},
+{
+	"uri": "/codegurupr/solve-awssdk/",
+	"title": "CodeGuru AWSSDK",
+	"tags": [],
+	"description": "",
+	"content": "  pull-request에 어떤 코드리뷰가 진행됬는지 확인해보겠습니다.\n  CodeCommit의 콘솔로 갑니다.\nCodeCommit의 콘솔로 가기: https://console.aws.amazon.com/codecommit\n  왼쪽 Source의 Repositories를 선택하고 concurrencysample을 누릅니다.   왼쪽 Source의 Repositories의 Pull requests를 pr-concurrencytest를 선택합니다.   CodeCommit과 Repository가 연결되어있다면 아래와 같은 화면이 나옵니다. 상단의 Activity를 선택합니다.   아무런 문제가 없는 줄 알았던 코드에 코드리뷰 코멘트가 달렸습니다.   AWS SDK를 사용하기위해 코드에 넣었던 AccessKey와 SceretKey같은 장기 엑세스 키보다 임시보안증명(IAM을 사용하라는 가이드입니다.) 이렇듯 CodeGuru가 AWS SDK를 올바르게 사용하는 방법과 문제점을 알려줍니다. 이런것들은 단순한 유닛테스트에서는 발견할 수 없는 내용이군요!\n  또한 CodeGuru가 제안한 내용이 정말 유용한지 피드백을 통해 평가할 수 있습니다. 이것들이 더 나은 CodeGuru의 Comment를 생성하는데 기여할 수 있습니다.\n   또 어떤 문제가 있을까요?    "
+},
+{
+	"uri": "/codegurupr/solve-concurrency/",
+	"title": "CodeGuru Concurrency",
+	"tags": [],
+	"description": "",
+	"content": "  스크롤을 내려거나 올려보면 또 다른 코멘트가 달려있는 것을 확인할 수 있습니다. concurrentHashMap이 Thread-safe한 자료구조라고 생각했는데 한가지 문제점이 있었습니다. ConcurrentHashMap은 성능을 위해 put명령을 수행할 때 Map 전체에 Lock을 걸지 않습니다. 물론 함수에 synchronized를 선언하여 동기화 할 수는 있지만 이러면 결국 Single-Thread에서 도는것과 같기 때문에 성능에 문제가 생길 수도 있습니다.\n  CodeGuru가 지적한 내용을 좀 더 자세히 살펴보면 다음과 같습니다.\nif (map.containsKey(product_code)) { \u0026lt;-----두번째 함수 진행중.\rreturn map.get(product_code);\r}else{\rreturn map.put(product_code, new Concurrency(product_code,\u0026#34;test\u0026#34;)); \u0026lt;-----첫번째 함수 진행중.\r}\r  CuncurrenctHashMap은 put()의 동작에 Lock을 걸지만 map 전체에 lock을 거는 것은 아니기 때문에 containsKey 결과를 보장할 수 없을 수 있습니다. 동시성문제는 간단한 코드나 사옹량이 적은 규모라면 발생하기 매우 어려운 에러입니다. 하지만 만약 에러가 생겻을 경우 ConcurrentHashMap의 정확한 동작방벙을 이해하고 있지 않다면 문제를 수정하기 매우 어려울 것입니다. CodeGuru는 이러한 문제점들을 찾아낼 수 있습니다. 또한 적절한 해결책도 제공하고 있습니다.\n  CodeGuru Reviewer가 제안한 대로 put(), containsKey() 함수 대신 putIfAbsent()함수를 한번만 수행하여 원자성을 보장할 수 있습니다. 해당코드를 아래와 같이 수정하겠습니다.\n-if (map.containsKey(product_code)) { - return map.get(product_code);\r-}else{\r- return map.put(product_code, new Concurrency(product_code,\u0026#34;test\u0026#34;));\r+return map.putIfAbsent(product_code, product_price);\r  SingletonRepo.java의 전체 코드는 아래와 같습니다.\npackage com.example.concurrencyservice;\rimport java.text.DateFormat;\rimport java.text.SimpleDateFormat;\rimport java.util.concurrent.*;\rpublic class SingletonRepo {\rprivate ConcurrentHashMap\u0026lt;Integer, Concurrency\u0026gt; map = new ConcurrentHashMap\u0026lt;\u0026gt;();\rDateFormat df = new SimpleDateFormat(\u0026#34;yyyy-MM-dd\u0026#34;);\rprivate static SingletonRepo singletonrepo = null;\rprivate SingletonRepo() {}\rpublic synchronized static SingletonRepo getInstance() {\rif (singletonrepo == null) {\rsingletonrepo = new SingletonRepo();\rSystem.out.println(\u0026#34;singleton repo instance created\u0026#34;);\r// count = 0;\r }\rreturn singletonrepo;\r}\rpublic Object putKey(int product_code, int product_price, int tname) { return map.putIfAbsent(product_code, new Concurrency(product_code,\u0026#34;test\u0026#34;));\r}\rpublic int getMapCount() {\rreturn map.size();\r}\rpublic void clearHashMap() {\rmap = new ConcurrentHashMap\u0026lt;\u0026gt;();\r}\rpublic Concurrency getKey(int product_number) {\rif (!map.containsKey(product_number)) {\rreturn null;\r} else {\rreturn map.get(product_number);\r}\r}\r}\r코드를 수정한 뒤 Push 합니다.\ngit add .\rgit commit -m \u0026#34;fix put(), containerKey()-\u0026gt; putifAbsent()\u0026#34;\rgit push\r  문제가 수정되었으므로 Pull-Request를 종료하겠습니다. AWS 콘솔 오른쪽 상단의 Merg버튼을 누릅니다.   master는 변경사항이 없었으므로 Fast forward merge를 선택합니다. Source는 develop이기 때문에 Delete source branch develop after merging?의 체크박스는 해제합니다.   왼쪽 메뉴의 Pipeline의 pipelines 선택합니다. 이제 develop의 코드가 master로 들어가면서 빌드가 진행되는 것을 볼 수 있습니다.   잠시 후 master의 빌드와 배포가 완료 된 것을 볼 수 있습니다. 새로 개발,변경한 코드가 프로덕션 환경에 안전하게 반영되었습니다.\n  이렇게 CD/CI 파이프라인을 사용하여 코드의 수정사항을 안전하게 master로 반영 할 수 있습니다. 또한 개발자는 Commit과 push만으로도 손쉽게 코드의 테스트 결과와 과정을 알 수 있습니다.\n  UnitTest와 CodeReview는 코드풀질을 높혀줄 수 있는 매우 좋은 방법중에 하나입니다. 각각의 과정에 CodeBuild Report와 CodeGuru Reviwer기능을 사용하여 더 안전하고 효과적인 코드빌드와 UnitTest를 하실 수 있습니다.\n   이제 실제 배포되서 돌아가는 프로파일링 결과를 확인하도록 하겠습니다.    "
+},
+{
+	"uri": "/codeguruprofiler/",
+	"title": "CodeGuru Profiler",
+	"tags": [],
+	"description": "",
+	"content": "CodeGuru Profiler를 WebApp 서버와 연동하겠습니다.\n  AWS 콘솔의 Services에서 Machine Learning의 CodeGuru을 선택합니다.   왼쪽 메뉴의 Profiler의 Profiling groups를 선택합니다. 그리고 concurrencysample-profiler를 선택합니다.   CodeGuru Profiler가 분석한 내용을 볼 수 있습니다. 함수당 수행한 시간과 퍼센트, 대략적인 비용을 예상할 수 있습니다. 또 한 프로파일링의 결과를 분석하여 개선해야할 점들을 리포트로 제공할 수도 있습니다.   이런 다양한 정보들을 사용하여 소프트웨어를 최적화 할 수 있습니다.\n   이제 실습이 끝났으니 지금까지 생성한 리소스를 지우도록하겠습니다.    "
+},
+{
+	"uri": "/codequality/solve/",
+	"title": "해결 방법",
+	"tags": [],
+	"description": "",
+	"content": "  HashMap을 ConcurrenctHashMap으로 변경하면됩니다. ConcurrenctHashMap은 Thread-safe하게 설계되었기 때문에 Multi-threaded환경에서 안정적으로 동작하고 Hashtable, synchronized map보다 조금 더 나은 성능을 가지고 있습니다. ConcurrenctHashMap은 put을 할때 해당 맵에 lock을 걸기 때문에 동시에 같은 값이 put되는 것을 막을 수 있습니다.\n  Cloud9에서 SingletonRepo.java파일을 엽니다.   아래 HashMap을 ConcurrentHashMap으로 변경합니다.\n+ import java.util.concurrent.*;\r ...\r- private HashMap\u0026lt;Integer, Concurrency\u0026gt; map = new HashMap\u0026lt;\u0026gt;();\r+ private ConcurrentHashMap\u0026lt;Integer, Concurrency\u0026gt; map = new ConcurrentHashMap\u0026lt;\u0026gt;();\r\r...\rpublic void clearHashMap() {\r+ map = new ConcurrentHashMap\u0026lt;\u0026gt;();\r- map = new HashMap\u0026lt;\u0026gt;();\r }\r  최종 SingletonRepo.java는 아래와 같습니다.\npackage com.example.concurrencyservice;\rimport java.text.DateFormat;\rimport java.text.SimpleDateFormat;\rimport java.util.concurrent.*;\rpublic class SingletonRepo {\rprivate ConcurrentHashMap\u0026lt;Integer, Concurrency\u0026gt; map = new ConcurrentHashMap\u0026lt;\u0026gt;();\rDateFormat df = new SimpleDateFormat(\u0026#34;yyyy-MM-dd\u0026#34;);\rprivate static SingletonRepo singletonrepo = null;\rprivate SingletonRepo() {}\rpublic synchronized static SingletonRepo getInstance() {\rif (singletonrepo == null) {\rsingletonrepo = new SingletonRepo();\rSystem.out.println(\u0026#34;singleton repo instance created\u0026#34;);\r// count = 0;\r }\rreturn singletonrepo;\r}\rpublic Object putKey(int product_code, int product_price, int tname) { if (map.containsKey(product_code)) {\rreturn map.get(product_code);\r}else{\rreturn map.put(product_code, new Concurrency(product_code,\u0026#34;test\u0026#34;));\r}\r/* return map.putIfAbsent(product_code, product_price);\r*/\r}\rpublic int getMapCount() {\rreturn map.size();\r}\rpublic void clearHashMap() {\rmap = new ConcurrentHashMap\u0026lt;\u0026gt;();\r}\rpublic Concurrency getKey(int product_number) {\rif (!map.containsKey(product_number)) {\rreturn map.get(product_number);\r} else {\rreturn map.get(product_number);\r}\r}\r}\r  이제 변경사항을 다시 Push 해줍니다.\ngit add .\rgit commit -m \u0026#34;fix singletonrepo.java\u0026#34;\rgit push\r  그리고 잠시 후 Report를 생성할때 확인 한 것처럼 Build의 Build project의 concurrencysample을 확인하면 빌드가 성공해 있는것을 볼 수 있습니다.   Report도 확인해 봅시다. 아까 Build의 Report group에서 Concurrency-Unittest-Report를 선택하면 100%로 통과된 결과를 확인 할 수 있습니다.\n  모든 테스트를 통과했기 때문에 Pipeline의 과정에 따라 자동으로 dev 환경에 배포까지 완료되었습니다.\n   이제 프로덕션 환경에 배포하기 위해 master로 pull-request를 보내 병합을 요청하겠습니다.    "
+},
+{
+	"uri": "/cleanup/",
+	"title": "실습 리소스 정리",
+	"tags": [],
+	"description": "",
+	"content": " 이 실습을 마치면 사용한 AWS 계정에 비용이 추가로 발생하지 않도록 사용한 리소스를 삭제해야 합니다. 리소스를 삭제하기 위해 기존의 Administrator (관리자) 계정으로 AWS 관리 콘솔에 로그인 합니다.\n AWS CloudFormation을 사용하여 생성한 모든 AWS 리소스를 정리합니다. 사전에 CloudFormation에서 만든 리소스에서 변경 사항이 있는 것들을 삭제합니다. 빌드 결과물이 저장되어있는 S3 Bucket과 CodeGuru를 위해 셋팅한 IAM, CodeGuru Profiler Group, CodeGuru Reviewer Associate, CodeBuild Report를 삭제합니다.\n 6-0. Cloud9  6-1. S3 Bucket  6-2. IAM Role  6-3. CodeGuru Repository Associate  6-4. CodeGuru Profiler  6-5. CloudFormation Stack  6-6. CodeBuild Report Group   "
+},
+{
+	"uri": "/cleanup/s3/",
+	"title": "S3 Bucket",
+	"tags": [],
+	"description": "",
+	"content": "  AWS Console의 Servies의 Storage의 s3를 선택합니다.   Buckets의 search바에 awsworkshop-concurrencysample-us-west-2를 입력합니다. 그리고 검색되어 나온 버킷의 오른쪽 라디오버튼을 선택합니다. 그리고 상단의 Empty버튼을 누릅니다.   Empty bucket의 Empty버튼을 활성화 하기위해 버킷네임을 입력한 후 Empty버튼을 눌러 버킷네용을 전부 삭제합니다.\n  삭제가 완료됬다는 메세지가 나오면 오른쪽 위 Exit를 눌러서 완료합니다.    이제 IAM role을 삭제하겠습니다.    "
+},
+{
+	"uri": "/cleanup/iam/",
+	"title": "IAM Role",
+	"tags": [],
+	"description": "",
+	"content": "IAM role을 삭제합니다.   IAM 콘솔로 갑니다.\nIAM 콘솔로 가기: https://console.aws.amazon.com/iam\n  왼쪽 Dashboard의 Access management의 Roles를 선택한 뒤 검색창에 CodeQuality-Workshop-WebAppRole을 검색합니다. 검색하여 나온 결과물의 체크박스를 클릭한 후 Delete role을 선택합니다.\n  Delete role의 Yes, Delete를 선택합니다.\n   이제 CodeGuru Reviewr의 Associate Repository를 삭제하겠습니다.    "
+},
+{
+	"uri": "/cleanup/codeguru-associate/",
+	"title": "CodeGuru Reviewr",
+	"tags": [],
+	"description": "",
+	"content": "CodeGuru Reviewr Associate Repo를 삭제합니다.   CodeGuru 콘솔로 갑니다.\nCodeGuru 콘솔로 가기: https://console.aws.amazon.com/CodeGuru\n  왼쪽 메뉴의 Reviewer의 Associated repositories를 선택합니다.   Associated repositories에서 concurrencysample의 라디오 박스를 체크한 후 오른쪽 상단의 Action 드랍박스의 Disasociate repository를 선택합니다.\n  status가 Disassociating으로 변경된 후 다시 리프레쉬해보면 삭제되어 보이지 않습니다.\n   이제 CodeGuru Profiler의 Profiling Group를 삭제하겠습니다.    "
+},
+{
+	"uri": "/cleanup/codeguru-profiler/",
+	"title": "CodeGuru Profiler",
+	"tags": [],
+	"description": "",
+	"content": "CodeGuru Reviewr Associate Repo를 삭제합니다.   CodeGuru 콘솔로 갑니다.\nCodeGuru 콘솔로 가기: https://console.aws.amazon.com/CodeGuru\n  왼쪽 메뉴의 Profiler의 Profiling groups를 선택합니다.   Profiling groups에서 concurrencysample-sampler의 라디오 박스를 체크한 후 오른쪽 상단의 Action 드랍박스의 Delete profiling group를 선택합니다.\n  Delete profiling group의 하단 Delete를 선택합니다.    이제 CloudFormation의 Stack을 삭제하겠습니다..    "
+},
+{
+	"uri": "/cleanup/cloudformation/",
+	"title": "CloudFormation",
+	"tags": [],
+	"description": "",
+	"content": "CloudFormation Stack을 삭제합니다.   CloudFormation 콘솔로 갑니다.\nCloudFormation 콘솔로 가기: https://console.aws.amazon.com/CloudFormation\n  왼쪽 메뉴의 Stacks를 선택한 후 CodeQuality-Workshop의 라디오 버튼을 선택한 후 상단의 Delete를 선택합니다.   **Delete CodeQuality-Workshop?**에서 하단 Delete stack을 선택합니다.   Stacks의 CodeQuality-Workshop의 Status가 DELETE_IN_PROGRESS로 변경됩니다. 완료되면 화면에서 삭제됩니다.\n   이제 CodeBuild의 Report Group을 삭제하겠습니다.    "
+},
+{
+	"uri": "/cleanup/codebuild/",
+	"title": "CodeBuild Report Group",
+	"tags": [],
+	"description": "",
+	"content": "CodeBuild Report Group을 삭제합니다.   CodeBuild 콘솔로 갑니다.\nCodeBuild 콘솔로 가기: https://console.aws.amazon.com/CodeBuild\n  Report groups에서 Concurrency-uniitest-Report의 라디오 박스를 체크한 후 오른쪽 상단의 Delete를 선택합니다.   Delete창에 delete를 입력한 후 Delete버튼을 누릅니다! (삭제가 되지 않는다면 스크롤 아래 내부의 빌드 결과를 모두 삭제하시면 됩니다.)\n   이제 Cloud9을 삭제하겠습니다.    "
+},
+{
+	"uri": "/cleanup/cloud9/",
+	"title": "Cloud9",
+	"tags": [],
+	"description": "",
+	"content": "Cloud9을 삭제합니다.   Cloud9 콘솔로 갑니다.\nCloud9 콘솔로 가기: https://console.aws.amazon.com/cloud9\n  Your environments의 CodequalityWorkshop`s Cloud9의 라디오버튼을 선택하고 상단의 Delete를 선택합니다.   Delete Codequalityworkshop\u0026rsquo;s Cloud9에 Delete를 입력하고 Delete 버튼을 누릅니다.    모든 데이터를 삭제하였습니다! 고생하셨습니다!  "
+},
+{
+	"uri": "/categories/",
+	"title": "Categories",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/credits/",
+	"title": "크레딧",
+	"tags": [],
+	"description": "",
+	"content": "패키지와 라이브러리  mermaid - generation of diagram and flowchart from text in a similar manner as markdown font awesome - the iconic font and CSS framework jQuery - The Write Less, Do More, JavaScript Library lunr - Lunr enables you to provide a great search experience without the need for external, server-side, search services\u0026hellip; horsey - Progressive and customizable autocomplete component clipboard.js - copy text to clipboard highlight.js - Javascript syntax highlighter modernizr - A JavaScript toolkit that allows web developers to use new CSS3 and HTML5 features while maintaining a fine level of control over browsers that don\u0026rsquo;t support  도구  Netlify - Continuous deployement and hosting of this documentation Hugo   제작: Daniel You\n"
+}]
