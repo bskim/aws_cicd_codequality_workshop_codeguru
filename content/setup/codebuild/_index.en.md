@@ -30,9 +30,9 @@ Go to the Codebuild console : https://console.aws.amazon.com/codebuild
     ```yml
     reports:
       <YOUR-REPORT-GROUP-ARN>:
-      files:
-        - '**/*'
-      base-directory: 'build/test-results/test'
+        files:
+          - '**/*'
+        base-directory: 'build/test-results/test'
     ```
 
 1. this is final code of **buildspec.yml**.
