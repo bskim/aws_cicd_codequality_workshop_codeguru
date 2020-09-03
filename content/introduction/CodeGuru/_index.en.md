@@ -17,7 +17,7 @@ Repository can use **GitHub** or **CodeCommit**. It is also easy to integrate.
 
 CodeGuru's service is composed of two types. 
 
-### 1. CodeGuru Reviewer that provides Automated CodeReviwe
+### 1. CodeGuru Reviewer that provides Automated CodeReview
   Amazon CodeGuru Reviewer finds issues in your code and recommends how to remediate them.
 
   ![codegurureviewer](/images/git-pr-codereviewer.png) 
