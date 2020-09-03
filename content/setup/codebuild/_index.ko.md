@@ -31,9 +31,9 @@ Codebuild 콘솔로 가기: https://console.aws.amazon.com/codebuild
     ```yml
     reports:
       <YOUR-REPORT-GROUP-ARN>:
-      files:
-        - '**/*'
-      base-directory: 'build/test-results/test'
+        files:
+          - '**/*'
+        base-directory: 'build/test-results/test'
     ```
 
 1. **buildspec.yml**의 최종 내용을 아래와 같습니다.
