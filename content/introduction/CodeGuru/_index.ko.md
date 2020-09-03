@@ -18,7 +18,7 @@ Repository는 **GitHub**또는 **CodeCommit**을 사용할 수 있습니다. 또
 CodeGuru의 서비스는 크개 두가지로 구성되어 있습니다. 그래서 각각의 코드 라이프사이클에 관여할 수 있습니다. 
 
 
-### 1. CodeReviwe 기능을 제공하는 CodeGuru Reviewer
+### 1. CodeReview 기능을 제공하는 CodeGuru Reviewer
   CodeGuru Reviewer는 GitHub 또는 CodeCommit에서 Pull-Request 발생시 자동을 코드를 분석하여 적절한 멘트를 달아줍니다. 
   CodeGuru Reviewer는 코드 결함을 찾아 표기하고 권장사항을 제안합니다. 
 
