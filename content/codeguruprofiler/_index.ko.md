@@ -6,7 +6,7 @@ pre: "<b>5. </b>"
 
 **CodeGuru Profiler groups**를 만들겠습니다. 이곳에서 실제 돌아가는 프로그램의 Profiling의 결과를 볼 수 있는 곳입니다. 
 
-CodeGuru 콘솔로 가기: https://console.aws.amazon.com/CodeGuru
+CodeGuru 콘솔로 가기: https://console.aws.amazon.com/codeguru
 
 왼쪽 메뉴의 Profiler의 **Profiling groups**를 선택합니다. 그리고 `concurrencysample-profiler`를 선택합니다. 
     ![codeguru01](/images/codeguru-profiler-show.png)

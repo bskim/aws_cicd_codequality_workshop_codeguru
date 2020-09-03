@@ -26,7 +26,7 @@ pre: "<b>4-3. </b>"
     -    return map.get(product_code);
     -}else{
     -    return map.put(product_code, new Concurrency(product_code,"test"));
-    +return map.putIfAbsent(product_code, product_price);
+    +return map.putIfAbsent(product_code,new Concurrency(product_code,"test", date));
     ```
 1. SingletonRepo.java의 전체 코드는 아래와 같습니다. 
     ```java
@@ -55,7 +55,7 @@ pre: "<b>4-3. </b>"
     
 
         public Object putKey(int product_code, int product_price, int tname) {            
-            return map.putIfAbsent(product_code, new Concurrency(product_code,"test"));
+            return map.putIfAbsent(product_code, new Concurrency(product_code,"test", date));            
         }
         public int getMapCount() {
             return map.size();

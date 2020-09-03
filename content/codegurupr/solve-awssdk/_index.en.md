@@ -6,7 +6,7 @@ pre: "<b>4-2. </b>"
 
 1. let`s check what kind of code review has doing in pull-request.(almost wait 5min.)
 
-1. Go to CodeCommit's console: https://console.aws.amazon.com/codecommit
+1. Go to CodeCommit's console: https://console.aws.amazon.com/codesuite/codecommit/repositories  
     
 1. Select Repositories of Source on the left and click concurrencysample.
     ![pr1](/images/pc-codecommit-select.png)

@@ -11,7 +11,7 @@ pre: "<b>4. </b>"
 1. 이제 프로덕션에 사용할 코드가 완성되었습니다. develop 브랜치의 코드는 모든 유닛테스트를 문제없이 통과하였기 때문에 프로덕션 환경에 배포할 것입니다. 일반 개발자는 보통 master 브랜치에 직접 push할 수 있는 권한이 없습니다. 그래서 pull-request를 통해 시니어개발자 또는 동료개발자와의 코드리뷰를 거친 후 master에 반영할 예정입니다. 혹시 모를 다른 문제점이 있을 수도 있으니까요. 
 
 
-1.	pull-request를 생성하기위해 CodeCommit 콘솔로 갑니다. : https://console.aws.amazon.com/CodeCommit    
+1.	pull-request를 생성하기위해 CodeCommit 콘솔로 갑니다. : https://console.aws.amazon.com/codesuite/codecommit/repositories     
 
 1. 왼쪽 Source의 Repositories를 선택하고 concurrencysample을 누릅니다. 
     ![pr1](/images/pc-codecommit-select.png)

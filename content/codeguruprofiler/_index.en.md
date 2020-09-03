@@ -6,14 +6,14 @@ pre: "<b>5. </b>"
 
 We will create **CodeGuru Profiler groups**. This is where you can see the data of Profiling.
 
-1. Go to the CodeGuru console: https://console.aws.amazon.com/CodeGuru
+1. Go to the CodeGuru console: https://console.aws.amazon.com/codeguru
 
 
-1. Select **Profiling groups** from the Profiler on the left menu. Then select `concurrencysample-profiler`.
+2. Select **Profiling groups** from the Profiler on the left menu. Then select `concurrencysample-profiler`.
     ![codeguru01](/images/codeguru-profiler-show.png)
 
 
-1. You can see the analysis by CodeGuru Profiler. You can estimate the amount of time, percent, and cost per function. In addition, the results of profiling can be analyzed to provide reports that require improvement.
+3. You can see the analysis by CodeGuru Profiler. You can estimate the amount of time, percent, and cost per function. In addition, the results of profiling can be analyzed to provide reports that require improvement.
     ![codeguru01](/images/codeguru-profiler-analytics.png)
 
 ### Overview Visualization

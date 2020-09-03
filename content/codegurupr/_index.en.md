@@ -14,7 +14,7 @@ There may be other problems you may not know.
 
 1.	Go to the CodeCommit console to create a pull-request.
 
-    Go to CodeCommit: https://console.aws.amazon.com/CodeCommit    
+    Go to CodeCommit: https://console.aws.amazon.com/codesuite/codecommit/repositories    
 
 1. Select Repositories in Source and click on `concurrencysample`.
     ![pr1](/images/pc-codecommit-select.png)

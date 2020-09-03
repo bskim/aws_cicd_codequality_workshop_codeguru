@@ -6,7 +6,7 @@ pre: "<b>4-2. </b>"
 
 1. pull-request에 어떤 코드리뷰가 진행됬는지 확인해보겠습니다. (5분정도 걸릴 수 있습니다.)
 
-1. CodeCommit의 콘솔로 가기: https://console.aws.amazon.com/codecommit
+1. CodeCommit의 콘솔로 가기: https://console.aws.amazon.com/codesuite/codecommit/repositories  
     
 1. 왼쪽 Source의 Repositories를 선택하고 concurrencysample을 누릅니다. 
     ![pr1](/images/pc-codecommit-select.png)
